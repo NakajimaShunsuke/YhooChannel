@@ -5,11 +5,15 @@ export default (app, http) => {
   app.listen(process.env.PORT || 8080)
   app.use(express.json());
 
-  app.get('/foo', (req, res) => {
-    res.json({
-      msg: 'foo'
+  // ランキングを取得する
+  app.get('/movieRanking', (req, res) => {
+    const crawling = require('./Api/crawling')
+    Promise.all(crawling()).then((result) => {
+      // console.log(result[0]);
+      res.json(result[0]);
     });
   });
+
   //
   // app.post('/bar', (req, res) => {
   //   res.json(req.body);
