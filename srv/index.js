@@ -1,15 +1,14 @@
 import express from 'express';
 // import socketIO from "socket.io";
 
-export default (app, http) => {
+export default (app) => {
   app.listen(process.env.PORT || 8080)
   app.use(express.json());
 
   // ランキングを取得する
-  app.get('/movieRanking', (req, res) => {
-    const crawling = require('./Api/crawling')
+  app.get('/app/movieranking', (req, res) => {
+    const crawling = require('./Api/RankingCrawling')
     Promise.all(crawling()).then((result) => {
-      // console.log(result[0]);
       res.json(result[0]);
     });
   });

@@ -23,12 +23,12 @@ module.exports = () => {
         const $ = await request.get(url, options);
 
         //配列にタイトルを挿入していく
-        await $('h3', '.m_unit').each((i, elem) => {
+        await $('h2', '.list-block').each((i, elem) => {
           titles_arr[i] = $(elem).text() //配列にタイトルを挿入していく
         })
 
         // 映画データをJSON形式に整形
-        await $('p', '.m_unit').each((i, elem) => {
+        await $('p', '.list-block').each((i, elem) => {
           result.push({
             rank: i + 1,
             title: titles_arr[i],
