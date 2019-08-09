@@ -36,6 +36,7 @@ module.exports = () => {
           })
         })
 
+        if (!result) throw "No Ranking Data"
         return result;
 
       } catch (error) {

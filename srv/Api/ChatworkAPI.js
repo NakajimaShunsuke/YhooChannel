@@ -1,8 +1,10 @@
 const postChatworkMessage = require('post-chatwork-message')
-const CHATWORK_API_KEY = 'f6e25047f3fbfa1a287c0232a64a2147'
+const API_KEY = require('../API_KEY.json').CHATWORK_API_KEY
+const chatwork_data = require('../env.json').chatwork
 
 module.exports = (value) => {
-  const roomId = '161861126'
+  const roomId = chatwork_data.roomId
+
   let date = new Date()
 
   // chatworkメッセージの作成
@@ -14,5 +16,5 @@ module.exports = (value) => {
   概要：${value.overview}`
 
   // chatworkにメッセージを送信
-  postChatworkMessage(CHATWORK_API_KEY, roomId, chat_data)
+  postChatworkMessage(API_KEY, roomId, chat_data)
 }
