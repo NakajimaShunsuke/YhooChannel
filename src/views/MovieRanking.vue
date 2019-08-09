@@ -4,20 +4,24 @@
     <v-layout column style="margin-top:20px; padding: 10px;">
       <!-- ランキング表 -->
       <v-flex v-for="item of master_movie" :key="item.id">
-        <ranking-card :ranking_data="item" />
+        <ranking-card :ranking_data="item">
+          <notice-dialog :movie_data="item" />
+        </ranking-card>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 <script>
 import RankingCard from "@/components/RankingCard";
+import Notice from "../components/Notice";
 import axios from "axios";
 
 import movie_json from "@/assets/movie";
 
 export default {
   components: {
-    "ranking-card": RankingCard
+    "ranking-card": RankingCard,
+    "notice-dialog": Notice
   },
   data() {
     return {

@@ -5,7 +5,7 @@
     <v-card-text>{{ ranking_data.overview }}</v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn text color="blue">お気に入り</v-btn>
+      <slot />
     </v-card-actions>
   </v-card>
 </template>
