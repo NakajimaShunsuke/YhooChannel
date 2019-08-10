@@ -1,14 +1,23 @@
 import express from 'express';
 // import socketIO from "socket.io";
 
-export default (app, http) => {
+export default (app) => {
   app.listen(process.env.PORT || 8080)
   app.use(express.json());
 
-  app.get('/foo', (req, res) => {
-    res.json({
-      msg: 'foo'
+  // ランキングを取得する
+  app.get('/app/movieranking', (req, res) => {
+    const crawling = require('./Api/RankingCrawling')
+    Promise.all(crawling()).then((result) => {
+      res.json(result[0]);
     });
+  });
+  // Chatworkにお気にいいり映画を通知
+  app.post('/app/chatworkapi', (req, res) => {
+    const chatwork = require('./Api/ChatworkAPI')
+    chatwork(req.body)
+
+    res.end()
   });
   //
   // app.post('/bar', (req, res) => {
