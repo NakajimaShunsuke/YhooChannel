@@ -37,8 +37,7 @@ export default {
     axios
       .get("/app/movieranking")
       .then(response => (this.master_movie = response.data))
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
         this.master_movie = movie_json;
       })
       .finally(() => (this.loading = false));
