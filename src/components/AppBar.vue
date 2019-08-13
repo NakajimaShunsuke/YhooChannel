@@ -30,7 +30,9 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <router-link :to="item.url" style="color:white; text-decoration: none;">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </router-link>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -45,8 +47,8 @@ export default {
 
       // ナビコンテンツ
       items: [
-        { title: "Home", icon: "dashboard" },
-        { title: "About", icon: "question_answer" }
+        { title: "Home", icon: "dashboard", url: "/" },
+        { title: "MovieRanking", icon: "question_answer", url: "/movieranking" }
       ]
     };
   }

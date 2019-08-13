@@ -1,5 +1,5 @@
 <template>
-  <v-container grid-list-xl style="min-height: 700px; color: #2196F3;">
+  <v-container grid-list-xl style="min-height: 700px; color: #FF9800;">
     <h1 style="text-align: center;">映画.comランキング</h1>
     <v-layout column style="margin-top:20px; padding: 10px;">
       <epic-spinner v-if="loading" />
