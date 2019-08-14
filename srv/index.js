@@ -19,11 +19,17 @@ export default (app) => {
       res.json(result[0]);
     });
   });
-  // Chatworkにお気にいいり映画を通知
+  // Chatworkに気になる映画を通知
   app.post('/app/chatworkapi', (req, res) => {
     const chatwork = require('./Api/ChatworkAPI')
     chatwork(req.body)
 
+    res.end()
+  });
+  // Chatworkに気になるTV番組を通知
+  app.get('/app/tvnotice', (req, res) => {
+    const chatwork = require('./Api/TvProgramNotice')
+    chatwork(req.body)
     res.end()
   });
   //
