@@ -12,6 +12,13 @@ export default (app) => {
       res.json(result[0]);
     });
   });
+  // TV番組検索
+  app.get('/app/programsearch', (req, res) => {
+    const crawling = require('./Api/ProgramCrawling')
+    Promise.all(crawling()).then((result) => {
+      res.json(result[0]);
+    });
+  });
   // Chatworkにお気にいいり映画を通知
   app.post('/app/chatworkapi', (req, res) => {
     const chatwork = require('./Api/ChatworkAPI')
