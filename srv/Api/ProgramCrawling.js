@@ -2,7 +2,7 @@ const request = require('request-promise')
 const cheerio = require('cheerio')
 
 // 映画.comのランキングクローリングAPI
-module.exports = () => {
+module.exports = (search_value) => {
 
   const options = {
     transform: (body) => {
@@ -14,7 +14,7 @@ module.exports = () => {
   const channel_arr = ["ＮＨＫ総合１・東京", "ＮＨＫＥテレ１・東京", "日テレ", "テレビ朝日", "ＴＢＳ", "テレビ東京", "フジテレビ", "ＴＯＫＹＯ　ＭＸ１"]
 
   const urls = [
-    `https://tv.so-net.ne.jp/schedulesBySearch.action?stationPlatformId=0&condition.keyword=${encodeURI('プリキュア')}`
+    `https://tv.so-net.ne.jp/schedulesBySearch.action?stationPlatformId=0&condition.keyword=${encodeURI(search_value)}`
   ];
 
   const promises = urls.map((url) => {
@@ -35,8 +35,7 @@ module.exports = () => {
           let result_tvStation = "地上波以外"
           // 配列にテレビ局を挿入
           channel_arr.forEach((v) => {
-            let font_int = 0
-            font_int = $(elem).text().indexOf(v)
+            let font_int = $(elem).text().indexOf(v)
             if (font_int != -1) result_tvStation = v
           })
           tvStation_arr.push(result_tvStation)

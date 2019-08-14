@@ -13,9 +13,9 @@ export default (app) => {
     });
   });
   // TV番組検索
-  app.get('/app/programsearch', (req, res) => {
+  app.post('/app/programsearch', (req, res) => {
     const crawling = require('./Api/ProgramCrawling')
-    Promise.all(crawling()).then((result) => {
+    Promise.all(crawling(req.body.search_value)).then((result) => {
       res.json(result[0]);
     });
   });
