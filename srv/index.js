@@ -12,11 +12,24 @@ export default (app) => {
       res.json(result[0]);
     });
   });
-  // Chatworkにお気にいいり映画を通知
+  // TV番組検索
+  app.post('/app/programsearch', (req, res) => {
+    const crawling = require('./Api/ProgramCrawling')
+    Promise.all(crawling(req.body.search_value)).then((result) => {
+      res.json(result[0]);
+    });
+  });
+  // Chatworkに気になる映画を通知
   app.post('/app/chatworkapi', (req, res) => {
     const chatwork = require('./Api/ChatworkAPI')
     chatwork(req.body)
 
+    res.end()
+  });
+  // Chatworkに気になるTV番組を通知
+  app.post('/app/tvnotice', (req, res) => {
+    const chatwork = require('./Api/TvProgramNotice')
+    chatwork(req.body)
     res.end()
   });
   //

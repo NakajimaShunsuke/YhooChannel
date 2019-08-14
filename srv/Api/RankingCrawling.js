@@ -6,7 +6,7 @@ module.exports = () => {
 
   const options = {
     transform: (body) => {
-      return cheerio.load(body);
+      return cheerio.load(body)
     }
   };
 
@@ -20,7 +20,7 @@ module.exports = () => {
         const titles_arr = []
         const result = []
 
-        const $ = await request.get(url, options);
+        const $ = await request.get(url, options)
 
         //配列にタイトルを挿入していく
         await $('h2', '.list-block').each((i, elem) => {
@@ -37,10 +37,10 @@ module.exports = () => {
         })
 
         if (!result) throw "No Ranking Data"
-        return result;
+        return result
 
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error:', error)
       }
     })();
   });
