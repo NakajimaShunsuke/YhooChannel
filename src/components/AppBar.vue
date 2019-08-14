@@ -48,7 +48,12 @@ export default {
       // ナビコンテンツ
       items: [
         { title: "Home", icon: "dashboard", url: "/" },
-        { title: "MovieRanking", icon: "question_answer", url: "/movieranking" }
+        {
+          title: "MovieRanking",
+          icon: "movie_filter",
+          url: "/movieranking"
+        },
+        { title: "ProgramTable", icon: "live_tv", url: "/programtable" }
       ]
     };
   }

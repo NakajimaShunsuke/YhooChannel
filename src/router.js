@@ -15,6 +15,11 @@ export default new Router({
       path: '/movieranking',
       name: 'movieranking',
       component: () => import( /* webpackChunkName: "about" */ './views/MovieRanking')
+    },
+    {
+      path: '/programtable',
+      name: 'programtable',
+      component: () => import( /* webpackChunkName: "about" */ './views/ProgramTable')
     }
   ]
 })
