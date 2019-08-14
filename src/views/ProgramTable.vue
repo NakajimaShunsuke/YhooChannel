@@ -9,6 +9,8 @@
     <v-col cols="12" style="padding-top:0">
       <v-btn block color="orange" dark @click="program_search = search">検索</v-btn>
     </v-col>
+
+    <!-- 検索結果 -->
     <v-col cols="12">
       <program-table :desserts="program_search" />
     </v-col>
@@ -22,7 +24,7 @@ import axios from "axios";
 import SimpleTable from "@/components/SimpleTable";
 import EpicSpinner from "@/components/EpicSpinners";
 
-// import program_json from "@/assets/program";
+import program_json from "@/assets/program";
 
 export default {
   components: {
@@ -32,11 +34,12 @@ export default {
   data() {
     return {
       loading: false,
-      program_data: "",
+      program_data: [],
       search: ""
     };
   },
   computed: {
+    // TV番組検索
     program_search: {
       get: function() {
         return this.program_data;
@@ -47,7 +50,7 @@ export default {
           .post("/app/programsearch", { search_value: value })
           .then(response => (this.program_data = response.data))
           .catch(() => {
-            // this.program_data = program_json;
+            this.program_data = program_json;
           })
           .finally(() => (this.loading = false));
       }

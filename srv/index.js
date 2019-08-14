@@ -27,7 +27,7 @@ export default (app) => {
     res.end()
   });
   // Chatworkに気になるTV番組を通知
-  app.get('/app/tvnotice', (req, res) => {
+  app.post('/app/tvnotice', (req, res) => {
     const chatwork = require('./Api/TvProgramNotice')
     chatwork(req.body)
     res.end()
