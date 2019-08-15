@@ -1,22 +1,14 @@
 <template>
-  <div>
-    <!-- 検索結果を表示する表 -->
-    <v-simple-table dark style="color:orange;">
-      <thead>
-        <tr>
-          <th class="text-left">番組名</th>
-          <th class="text-left">時間帯</th>
-          <th class="text-left">放送局</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in desserts" :key="item.id" @click.stop="dialog_open(item)">
-          <td>{{ item.title }}</td>
-          <td>{{ item.date }}</td>
-          <td style="min-width:75px">{{ item.tvStation }}</td>
-        </tr>
-      </tbody>
-    </v-simple-table>
+  <v-container grid-list-xl style="min-height: 700px; color:#FF9800;">
+    <h1>TV番組検索</h1>
+
+    <!-- 番組検索 -->
+    <program-search v-on:program_data="program_data = $event" />
+
+    <!-- 検索結果 -->
+    <v-col cols="12">
+      <program-table :desserts="program_data" v-on:column_data="dialog_open($event)" />
+    </v-col>
 
     <!-- chatworkに通知するかを問うダイアログ -->
     <v-dialog v-model="dialog" max-width="290">
@@ -38,19 +30,23 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </div>
+  </v-container>
 </template>
+
 <script>
 import axios from "axios";
 
+import ProgramTable from "../components/ProgramTable";
+import ProgramSearch from "../components/ProgramSearch";
+
 export default {
-  props: {
-    desserts: {
-      type: Array
-    }
+  components: {
+    "program-table": ProgramTable,
+    "program-search": ProgramSearch
   },
   data() {
     return {
+      program_data: [],
       dialog: false,
       dialog_data: []
     };

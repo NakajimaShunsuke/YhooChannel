@@ -53,7 +53,7 @@ export default {
           icon: "movie_filter",
           url: "/movieranking"
         },
-        { title: "ProgramTable", icon: "live_tv", url: "/programtable" }
+        { title: "TvProgram", icon: "live_tv", url: "/programtable" }
       ]
     };
   }
