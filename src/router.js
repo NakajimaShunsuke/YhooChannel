@@ -19,7 +19,7 @@ export default new Router({
     {
       path: '/programtable',
       name: 'programtable',
-      component: () => import( /* webpackChunkName: "about" */ './views/ProgramTable')
+      component: () => import( /* webpackChunkName: "about" */ './views/TvProgram.vue')
     }
   ]
 })
