@@ -6,7 +6,9 @@
       <!-- ランキング表 -->
       <v-flex v-for="item of master_movie" :key="item.id">
         <ranking-card :ranking_data="item">
-          <notice-dialog :movie_data="item" />
+          <template v-slot:notice_dialog>
+            <notice-dialog :movie_data="item" />
+          </template>
         </ranking-card>
       </v-flex>
     </v-layout>

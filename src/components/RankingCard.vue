@@ -5,7 +5,7 @@
     <v-card-text>{{ ranking_data.overview }}</v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <slot />
+      <slot name="notice_dialog" />
     </v-card-actions>
   </v-card>
 </template>
