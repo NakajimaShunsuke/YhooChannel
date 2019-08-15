@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" color="orange lighten-4">
+  <v-card class="mx-auto" color="orange lighten-4" style="color:#424242">
     <v-card-text style="padding:5px 16px;">{{ ranking_data.rank }}位</v-card-text>
     <v-card-title>{{ ranking_data.title }}</v-card-title>
     <v-card-text>{{ ranking_data.overview }}</v-card-text>

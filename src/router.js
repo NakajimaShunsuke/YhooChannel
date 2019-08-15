@@ -9,17 +9,17 @@ export default new Router({
   routes: [{
       path: '/',
       name: 'home',
-      component: () => import( /* webpackChunkName: "about" */ './views/Home')
+      component: () => import( /* webpackChunkName: "about" */ '@/views/Home')
     },
     {
       path: '/movieranking',
       name: 'movieranking',
-      component: () => import( /* webpackChunkName: "about" */ './views/MovieRanking')
+      component: () => import( /* webpackChunkName: "about" */ '@/views/MovieRanking')
     },
     {
       path: '/programtable',
       name: 'programtable',
-      component: () => import( /* webpackChunkName: "about" */ './views/TvProgram.vue')
+      component: () => import( /* webpackChunkName: "about" */ '@/views/TvProgram.vue')
     }
   ]
 })
