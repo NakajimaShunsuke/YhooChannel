@@ -36,8 +36,8 @@
 <script>
 import axios from "axios";
 
-import ProgramTable from "../components/ProgramTable";
-import ProgramSearch from "../components/ProgramSearch";
+import ProgramTable from "@/components/ProgramTable";
+import ProgramSearch from "@/components/ProgramSearch";
 
 export default {
   components: {
