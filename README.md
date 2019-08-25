@@ -15,6 +15,16 @@ npm run serve
 npm run build
 ```
 
+### vue-cli-service express:run
+```
+npm express:run
+```
+
+###  vue-cli-service express:watch
+```
+npm express:watch
+```
+
 ### Run your tests
 ```
 npm run test
